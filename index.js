@@ -15,14 +15,15 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-//pass three parameters - name, price , category
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-}
-// return an object with the three parameters
+function createMenuItem(name, price, category){
+  return {name, price, category} 
+  }
 
 
+
+
+console.log(createMenuItem("tacos", 8, "Lunch"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -53,9 +54,18 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
+  discount: function(customer){
+    if(customer === 'teacher' || customer === 'student'){
+      return this.price - (this.price * 0.25);
+    }else if(customer === 'public'){
+      return this.price - (this.price * 0.10);
+    }
+  }
   //method called discount for teachers and students and public a different discount // Need to use this when referecning a key of a method// you are returning just the discounted price
 }
 
+
+console.log('task 2', burger.discount('teacher'))
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -74,7 +84,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log(reviews[5])
 // just console logging
 
 
@@ -99,11 +109,14 @@ Write a function that creates an object with name, rating, feedback, add the new
 
 
 //pass array, name, rating, feedback as parameters
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(array, name, rating, feedback){
+  const newArray = [];
+  for(let i = 0; i < array.length; i++){
+    newArray.push(array[i])
+  }
+  return newArray;
   //push the object to the end of the array and return the resulting array
 }
-
 
 
 
@@ -118,12 +131,16 @@ Use the getReviewByIndex function below to do the following:
 */
 
 //array, index
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-  //return the string '{array[index].name}   {rating}    {feedback}
+function getReviewByIndex(array, index) {
+  const newArray = [];
+  for(let i = index; i < array.length; i++){
+    if(array[i] === reviews )
+    newArray.push(array[i][index])
+  }
+  return newArray;
 }
 
-
+console.log( 'task 6', getReviewByIndex(reviews, 0))
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -138,12 +155,13 @@ Use the getLastReview function below to do the following:
 */
 
 // array
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  for(let i = 0; i < array.length; i++)
+  return array-1
   // array.length-1 will be useful
 } 
 
-
+console.log('task 7',getLastReview(reviews))
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
